@@ -25,11 +25,15 @@ public class BookController {
 
 	@GetMapping("/books")
 	public ResponseEntity<List<Book>> getBooks() {
+		
+		System.out.println("Testing");
 		List<Book> books = bookService.getBooks();
 		if (books.size() <= 0) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 		}
 		return ResponseEntity.status(HttpStatus.ACCEPTED).body(books);
+		
+		
 	}
 
 	@GetMapping("/books/{id}")
